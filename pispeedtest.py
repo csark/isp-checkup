@@ -1,7 +1,7 @@
 #!/usr/bin/python
 import os
 import sys
-import csv
+import json
 import datetime
 import time
 import twitter
@@ -10,7 +10,7 @@ def test():
 
         #run speedtest-cli
         print 'running test'
-        a = os.popen("python /home/pi/speedtest/speedtest-cli --simple").read()
+        a = os.popen("python speedtest-cli --simple").read()
         print 'ran'
         #split the 3 line result (ping,down,up)
         lines = a.split('\n')
@@ -62,7 +62,7 @@ def test():
                         print str(e)
                         pass
         return
-        
+
 if __name__ == '__main__':
         test()
         print 'completed'
