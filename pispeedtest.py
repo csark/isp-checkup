@@ -1,4 +1,5 @@
-#!/usr/bin/python
+#!/usr/bin/env python
+
 import os
 import sys
 import json
@@ -9,8 +10,7 @@ def test():
 
     #run speedtest-cli
     print 'Test Running....'
-    a = os.popen("python speedtest_cli.py --simple").read()
-    print 'Test Complete'
+    a = os.popen("python ~/git/isp-checkup/speedtest_cli.py --simple").read()
     #split the 3 line result (ping,down,up)
     lines = a.split('\n')
     #print a
@@ -27,17 +27,22 @@ def test():
             p = lines[0][6:11]
             d = lines[1][10:14]
             u = lines[2][8:12]
-    update = {date: { 'ping': p, 'download': d, 'upload': u}}
-    #save the data to file for local network plotting
 
-    with open('data.json','r') as f:
+    #save the data to file for local network plotting
+    with open('/home/clark/git/isp-checkup/data.json','r') as f:
         dic = json.load(f)
         f.close()
+        number = len(dic) + 1
+        update = {number: { 'date': date, 'ping': p, 'download': d, 'upload': u}}
         dic.update(update)
-        wf = open('data.json','w')
+        for key in dic:
+            dic[int(key)] = dic.pop(key)
+        sorted(dic)
+        wf = open('/home/clark/git/isp-checkup/data.json','w')
         json.dump(dic, wf)
 
     return
 
 if __name__ == '__main__':
     test()
+    print 'Test Complete'

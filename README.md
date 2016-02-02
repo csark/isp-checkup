@@ -1,2 +1,2 @@
-# isp-checkup
-A frankenstien mash of other's code and mine to display your Internet speed over time
+# ISP Checkup
+This setup utilizes the python CLI version of speedtest.net to record a year or so worth of data.
