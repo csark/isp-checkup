@@ -29,10 +29,6 @@ def test():
             u = lines[2][8:12]
     update = {date: { 'ping': p, 'download': d, 'upload': u}}
     #save the data to file for local network plotting
-    #out_file = open('/var/www/assets/data.csv', 'a')
-    #writer = csv.writer(out_file)
-    #writer.writerow((ts*1000,p,d,u))
-    #out_file.close()
 
     with open('data.json','r') as f:
         dic = json.load(f)
