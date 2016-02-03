@@ -1,8 +1,11 @@
 # ISP Checkup
-A python tool to periodically check your internet speeds and display them on a local webpage.
+A python tool to periodically check your Internet speeds and display them on a local web page.
 
 ###Chart.js
 Version 1.0.2 Stable
+
+###speedtest-cli
+Version 0.3.4
 
 ##Installation
 
