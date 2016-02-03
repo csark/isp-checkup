@@ -3,7 +3,7 @@
 import os
 import sys
 import json
-import datetime
+import collections
 import time
 
 def test():
@@ -32,13 +32,19 @@ def test():
         dic = json.load(f)
         f.close()
 
+    #add newest values
     update = {ts: { 'ping': p, 'download': d, 'upload': u}}
     dic.update(update)
+
+    #sort values
     for key in dic:
         dic[int(key)] = dic.pop(key)
-    sorted(dic)
+    od = collections.OrderedDict(sorted(dic.items()))
+
+    #write values to file
     wf = open('/home/clark/git/isp-checkup/data/data.json','w')
-    json.dump(dic, wf)
+    json.dump(od, wf, indent=4)
+    wf.close()
 
     return
 
