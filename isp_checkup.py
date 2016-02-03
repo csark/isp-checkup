@@ -28,7 +28,7 @@ def test():
             u = lines[2][8:12]
 
     #read in old data
-    with open('/home/clark/git/isp-checkup/data/data.json','r') as f:
+    with open('/home/clark/git/isp-checkup/data/data.js','r') as f:
         dic = json.load(f)
         f.close()
 
@@ -42,7 +42,7 @@ def test():
     od = collections.OrderedDict(sorted(dic.items()))
 
     #write values to file
-    wf = open('/home/clark/git/isp-checkup/data/data.json','w')
+    wf = open('/home/clark/git/isp-checkup/data/data.js','w')
     json.dump(od, wf, indent=4)
     wf.close()
 

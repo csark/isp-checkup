@@ -16,6 +16,7 @@
 	<script>
 	window.onload = function(){
 		var ctx = document.getElementById("canvas").getContext("2d");
+		init()
 		window.myLine = new Chart(ctx).Line(lineChartData, {
 			responsive: true
 		});
