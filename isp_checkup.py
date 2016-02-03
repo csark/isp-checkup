@@ -29,7 +29,7 @@ def test():
             u = lines[2][8:12]
 
     #read in old data
-    with open('/home/clark/git/isp-checkup/data.json','r') as f:
+    with open('/home/clark/git/isp-checkup/data/data.json','r') as f:
         dic = json.load(f)
         f.close()
 
@@ -39,7 +39,7 @@ def test():
     for key in dic:
         dic[int(key)] = dic.pop(key)
     sorted(dic)
-    wf = open('/home/clark/git/isp-checkup/data.json','w')
+    wf = open('/home/clark/git/isp-checkup/data/data.json','w')
     json.dump(dic, wf)
 
     return
