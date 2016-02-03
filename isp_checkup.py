@@ -14,8 +14,7 @@ def test():
     #split the 3 line result (ping,down,up)
     lines = a.split('\n')
     #print a
-    ts = time.time()
-    date =datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+    ts = int(time.time())
 
     #if speedtest could not connect set the speeds to 0
     if "Cannot" in a:
@@ -33,8 +32,7 @@ def test():
         dic = json.load(f)
         f.close()
 
-    number = len(dic) + 1
-    update = {number: { 'date': date, 'ping': p, 'download': d, 'upload': u}}
+    update = {ts: { 'ping': p, 'download': d, 'upload': u}}
     dic.update(update)
     for key in dic:
         dic[int(key)] = dic.pop(key)
