@@ -28,18 +28,19 @@ def test():
             d = lines[1][10:14]
             u = lines[2][8:12]
 
-    #save the data to file for local network plotting
+    #read in old data
     with open('/home/clark/git/isp-checkup/data.json','r') as f:
         dic = json.load(f)
         f.close()
-        number = len(dic) + 1
-        update = {number: { 'date': date, 'ping': p, 'download': d, 'upload': u}}
-        dic.update(update)
-        for key in dic:
-            dic[int(key)] = dic.pop(key)
-        sorted(dic)
-        wf = open('/home/clark/git/isp-checkup/data.json','w')
-        json.dump(dic, wf)
+
+    number = len(dic) + 1
+    update = {number: { 'date': date, 'ping': p, 'download': d, 'upload': u}}
+    dic.update(update)
+    for key in dic:
+        dic[int(key)] = dic.pop(key)
+    sorted(dic)
+    wf = open('/home/clark/git/isp-checkup/data.json','w')
+    json.dump(dic, wf)
 
     return
 
