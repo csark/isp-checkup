@@ -24,7 +24,7 @@ for (var key in arr) {
 }
 
 var lineChartData = {
-  labels : arrDates,//["January","February","March","April","May","June","July","January","February","March","April","May","June"],
+  labels : arrDates,
   datasets : [
     {
       label: "Mbps Down",
@@ -34,7 +34,7 @@ var lineChartData = {
       pointStrokeColor : "#fff",
       pointHighlightFill : "#fff",
       pointHighlightStroke : "rgba(220,220,220,1)",
-      data : arrDownloads//[randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+      data : arrDownloads
     },
     {
       label: "Mbps Up",
@@ -44,7 +44,7 @@ var lineChartData = {
       pointStrokeColor : "#fff",
       pointHighlightFill : "#fff",
       pointHighlightStroke : "rgba(151,187,205,1)",
-      data : arrUploads//[randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+      data : arrUploads
     }
   ]
 
