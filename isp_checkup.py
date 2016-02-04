@@ -9,8 +9,8 @@ import time
 def test():
 
     #run speedtest-cli
-    print 'Test Running....'
-    a = os.popen("python ~/git/isp-checkup/speedtest_cli.py --simple").read()
+    print('Test Running....')
+    a = os.popen("python /path/to/isp-checkup/speedtest_cli.py --simple").read()
     #split the 3 line result (ping,down,up)
     lines = a.split('\n')
     #print a
@@ -27,8 +27,8 @@ def test():
             d = lines[1][10:14]
             u = lines[2][8:12]
 
-    json_location = '/home/cwh98/git/isp-checkup/data/data.json'
-    javascript_data = '/home/cwh98/git/isp-checkup/js/data.js'
+    json_location = '/path/to/git/isp-checkup/data/data.json'
+    javascript_data = '/path/to/isp-checkup/js/data.js'
     #read in old data
     with open(json_location,'r') as f:
         dic = json.load(f)
@@ -63,4 +63,4 @@ def test():
 
 if __name__ == '__main__':
     test()
-    print 'Test Complete'
+    print('Test Complete')
