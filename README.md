@@ -6,9 +6,11 @@ A python/javascript tool to periodically check your Internet speeds and display 
 
 ###Chart.js
 Version 1.0.2 Stable
+<a href="https://github.com/nnnick/Chart.js">Chart.js</a>
 
 ###speedtest-cli
 Version 0.3.4
+<a href="https://github.com/sivel/speedtest-cli">speedtest-cli</a>
 
 ##Installation
 
