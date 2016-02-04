@@ -1,29 +1,50 @@
-var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+function formatDate(d){
+  var hours = d.getHours();
+  var minutes = d.getMinutes();
+  minutes = minutes < 10 ? '0'+minutes : minutes;
+  var strTime = hours + ':' + minutes;
+  return d.getMonth()+1 + "/" + d.getDate() + "/" + d.getFullYear() + "  " + strTime;
+}
 
 var arr = JSON.parse(data);
+var arrDates = []
+var arrDownloads = []
+var arrUploads = []
+
+
+for (var key in arr) {
+  if (arr.hasOwnProperty(key)) {
+    //alert(key + " -> " + arr[key]['ping']);
+    var d = new Date(0);
+    d.setUTCSeconds(key);
+    arrDates.push(formatDate(d));
+    arrDownloads.push(arr[key]['download']);
+    arrUploads.push(arr[key]['upload'])
+  }
+}
 
 var lineChartData = {
-  labels : ["January","February","March","April","May","June","July","January","February","March","April","May","June"],
+  labels : arrDates,//["January","February","March","April","May","June","July","January","February","March","April","May","June"],
   datasets : [
     {
-      label: "My First dataset",
+      label: "Mbps Down",
       fillColor : "rgba(220,220,220,0.2)",
       strokeColor : "rgba(220,220,220,1)",
       pointColor : "rgba(220,220,220,1)",
       pointStrokeColor : "#fff",
       pointHighlightFill : "#fff",
       pointHighlightStroke : "rgba(220,220,220,1)",
-      data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+      data : arrDownloads//[randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
     },
     {
-      label: "My Second dataset",
+      label: "Mbps Up",
       fillColor : "rgba(151,187,205,0.2)",
       strokeColor : "rgba(151,187,205,1)",
       pointColor : "rgba(151,187,205,1)",
       pointStrokeColor : "#fff",
       pointHighlightFill : "#fff",
       pointHighlightStroke : "rgba(151,187,205,1)",
-      data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+      data : arrUploads//[randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
     }
   ]
 
