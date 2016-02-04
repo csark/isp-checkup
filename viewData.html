@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>Line Chart</title>
+		<script src="js/data.js"></script>
 		<script src="js/Chart.min.js"></script>
 		<script src="js/chartData.js"></script>
 	</head>
@@ -16,7 +17,6 @@
 	<script>
 	window.onload = function(){
 		var ctx = document.getElementById("canvas").getContext("2d");
-		init()
 		window.myLine = new Chart(ctx).Line(lineChartData, {
 			responsive: true
 		});

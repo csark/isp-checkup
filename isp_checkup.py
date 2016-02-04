@@ -27,12 +27,14 @@ def test():
             d = lines[1][10:14]
             u = lines[2][8:12]
 
+    json_location = '/home/clark/git/isp-checkup/data/data.json'
+    javascript_data = '/home/clark/git/isp-checkup/js/data.js'
     #read in old data
-    with open('/home/clark/git/isp-checkup/data/data.js','r') as f:
+    with open(json_location,'r') as f:
         dic = json.load(f)
         f.close()
 
-    #add newest values
+    #add newest values to dictionary
     update = {ts: { 'ping': p, 'download': d, 'upload': u}}
     dic.update(update)
 
@@ -42,9 +44,20 @@ def test():
     od = collections.OrderedDict(sorted(dic.items()))
 
     #write values to file
-    wf = open('/home/clark/git/isp-checkup/data/data.js','w')
+    wf = open(json_location,'w')
     json.dump(od, wf, indent=4)
     wf.close()
+
+    js_data = open(javascript_data, 'w')
+    jsonfile = open(json_location,'r')
+    jf = jsonfile.read()
+    data = ''
+    for line in jf:
+        data += line.strip('\n')
+    js_data.write('data = \'')
+    js_data.write(data)
+    js_data.write('\';')
+    js_data.close()
 
     return
 
