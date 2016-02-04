@@ -5,7 +5,7 @@ A python/javascript tool to periodically check your Internet speeds and display 
 
 ##Installation
 
-##Credit Where it is Due
+##Credit Where Credit is Due
 ###<a href="https://github.com/nnnick/Chart.js">Chart.js</a>
 Version 1.0.2 Stable
 
