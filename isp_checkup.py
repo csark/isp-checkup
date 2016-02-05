@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 import os
-import sys
 import json
 import collections
 import time
@@ -9,15 +8,15 @@ import time
 def test():
 
     #run speedtest-cli
-    print('Test Running....')
-    a = os.popen("python /path/to/isp-checkup/speedtest_cli.py --simple").read()
+    #print('Test Running....')
+    a = os.popen("python ~/git/isp-checkup/speedtest_cli.py --simple").read()
     #split the 3 line result (ping,down,up)
     lines = a.split('\n')
     #print a
     ts = int(time.time())
 
     #if speedtest could not connect set the speeds to 0
-    if "Cannot" in a:
+    if "Could not" in a:
             p = 100
             d = 0
             u = 0
@@ -27,8 +26,8 @@ def test():
             d = lines[1][10:14]
             u = lines[2][8:12]
 
-    json_location = '/path/to/git/isp-checkup/data/data.json'
-    javascript_data = '/path/to/isp-checkup/js/data.js'
+    json_location = '/home/clark/git/isp-checkup/data/data.json'
+    javascript_data = '/home/clark/git/isp-checkup/js/data.js'
     #read in old data
     with open(json_location,'r') as f:
         dic = json.load(f)
@@ -38,10 +37,19 @@ def test():
     update = {ts: { 'ping': p, 'download': d, 'upload': u}}
     dic.update(update)
 
-    #sort values
-    for key in dic:
-        dic[int(key)] = dic.pop(key)
-    od = collections.OrderedDict(sorted(dic.items()))
+    magic_number = 48
+
+    #sort and delete oldest value
+    od = {}
+    if len(dic) > magic_number:
+        for key in dic:
+            dic[int(key)] = dic.pop(key)
+        od = collections.OrderedDict(sorted(dic.items()))
+        od.popitem(last=False)
+    else:
+        for key in dic:
+            dic[int(key)] = dic.pop(key)
+        od = collections.OrderedDict(sorted(dic.items()))
 
     #write values to file
     wf = open(json_location,'w')
@@ -63,4 +71,4 @@ def test():
 
 if __name__ == '__main__':
     test()
-    print('Test Complete')
+    #print('Test Complete')

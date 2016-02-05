@@ -8,9 +8,9 @@
 		<link rel="icon" type="image/png" href="images/isp-checkup.png">
 	</head>
 	<body>
-		<div style="width:70%">
+		<div style="width:90%">
 			<div>
-				<canvas id="canvas" height="450" width="600"></canvas>
+				<canvas id="canvas" height="450" width="700"></canvas>
 			</div>
 		</div>
 
@@ -21,6 +21,7 @@
 		window.myLine = new Chart(ctx).Line(lineChartData, {
 			responsive: true,
 			scaleLabel: "<%=value%> Mbps",
+			tooltipXOffset: 1,
 			multiTooltipTemplate: "<%= value %> <%= datasetLabel %>"
 		});
 	}
