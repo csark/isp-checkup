@@ -1,3 +1,10 @@
+var arr = JSON.parse(data);
+var arrDates = [];
+var arrDownloads = [];
+var arrUploads = [];
+var arrPromised = [];
+var promise = 50;
+
 function formatDate(d){
   var hours = d.getHours();
   var minutes = d.getMinutes();
@@ -5,12 +12,6 @@ function formatDate(d){
   var strTime = hours + ':' + minutes;
   return d.getMonth()+1 + "/" + d.getDate() + "/" + d.getFullYear() + "  " + strTime;
 }
-
-var arr = JSON.parse(data);
-var arrDates = []
-var arrDownloads = []
-var arrUploads = []
-
 
 for (var key in arr) {
   if (arr.hasOwnProperty(key)) {
@@ -20,6 +21,7 @@ for (var key in arr) {
     arrDates.push(formatDate(d));
     arrDownloads.push(arr[key]['download']);
     arrUploads.push(arr[key]['upload'])
+    arrPromised.push(promise)
   }
 }
 

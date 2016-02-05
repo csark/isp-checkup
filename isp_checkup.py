@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 
-import os
-import json
-import collections
-import time
+import os, json, collections, time
 
 def test():
 
@@ -56,6 +53,7 @@ def test():
     json.dump(od, wf, indent=4)
     wf.close()
 
+    #create valid javascript json object
     js_data = open(javascript_data, 'w')
     jsonfile = open(json_location,'r')
     jf = jsonfile.read()
