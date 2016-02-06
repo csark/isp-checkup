@@ -1,15 +1,20 @@
 #!/usr/bin/env python
 
+#2016 Clark Hatch
+#Provide simple way to monitor provided internet bandwidth
+
+
 import os, json, collections, time
 
 def test():
 
     #run speedtest-cli
-    #print('Test Running....')
     a = os.popen("python ~/git/isp-checkup/speedtest_cli.py --simple").read()
+
     #split the 3 line result (ping,down,up)
     lines = a.split('\n')
-    #print a
+
+    #create timestamp
     ts = int(time.time())
 
     #if speedtest could not connect set the speeds to 0
@@ -39,7 +44,7 @@ def test():
     #displays 12 hours of data.
     magic_number = 48
 
-    #sort and delete oldest value
+    #sort and delete oldest value. Keep only a magic number's worth of data
     od = {}
     if len(dic) > magic_number:
         for key in dic:
@@ -72,4 +77,3 @@ def test():
 
 if __name__ == '__main__':
     test()
-    #print('Test Complete')
