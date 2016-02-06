@@ -23,8 +23,8 @@ def test():
             d = lines[1][10:14]
             u = lines[2][8:12]
 
-    json_location = '/home/clark/git/isp-checkup/data/data.json'
-    javascript_data = '/home/clark/git/isp-checkup/js/data.js'
+    json_location = '/home/cwh98/git/isp-checkup/data/data.json'
+    javascript_data = '/home/cwh98/git/isp-checkup/js/data.js'
     #read in old data
     with open(json_location,'r') as f:
         dic = json.load(f)
@@ -34,6 +34,9 @@ def test():
     update = {ts: { 'ping': p, 'download': d, 'upload': u}}
     dic.update(update)
 
+    #Magic number refers to the amount of datapoints you want to show in your graph
+    #I like to generate a sample every 15 minutes. With a magic number of 48 that
+    #displays 12 hours of data.
     magic_number = 48
 
     #sort and delete oldest value
