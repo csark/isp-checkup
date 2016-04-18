@@ -28,8 +28,10 @@ def test():
             d = lines[1][10:14]
             u = lines[2][8:12]
 
+    #set file location paths
     json_location = '/path/to/repo/isp-checkup/data/data.json'
     javascript_data = '/path/to/repo/isp-checkup/js/data.js'
+    
     #read in old data
     with open(json_location,'r') as f:
         dic = json.load(f)
