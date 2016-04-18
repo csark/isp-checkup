@@ -9,7 +9,7 @@ import os, json, collections, time
 def test():
 
     #run speedtest-cli
-    a = os.popen("python ~/git/isp-checkup/speedtest_cli.py --simple").read()
+    a = os.popen("python /path/to/repo/isp-checkup/speedtest_cli.py --simple").read()
 
     #split the 3 line result (ping,down,up)
     lines = a.split('\n')
