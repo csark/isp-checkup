@@ -34,7 +34,7 @@ def runHttpServer():
         print("-Set default path in isp_checkup.py")
         print("-Created a cron job to check internet speeds every 10 minutes")
         print("\nAll that is left do to:")
-        print("-As sudo run this command 'python -m SimpleHTTPServer 80 >> logs/pyHTTP.log &; disown'")
+        print("-As sudo run this command 'python -m SimpleHTTPServer 80'")
         #print("\tand then 'disown'")
 
 
