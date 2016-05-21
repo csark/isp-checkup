@@ -4,10 +4,8 @@ A python/javascript tool to periodically check your Internet speeds and display 
 ![alt tag](https://lh3.googleusercontent.com/twBOldWEh6CV6r0sAzmtkKYE9redujvC_r5HT28dFBpoKBuR-tlvKeqyCNn-txIrexvRUjmpPUvQ4D05I4qj-PfO7tPcK4D_sFKtp9VbbfJYtaCV4kNEFsbedTX1tRnnFIWC5Uifn3bPfSgKcEwQ0pKHVS1ifFk8oW1kkJ6aMNHs1gPo-fll28p7f12PX2eir2lZYRf2tCmp74v5Xmd5IAh2EoEkZZBXWqTTOA7FRLZVyRm7V8rJEjRplrFLTreTxedDL14dk5y4OcdW-jCe4zu6sgcR3vKRWWQWVJvHHsWuCM0CMsVe_2bOE6w66UNFzgq434kBkPIc4u9pA2YN68meIuKgN5UeJrXOZa4ITRwbF5S-BpsFQLMz0iWn8lN6ellogaYHozJVsXZu5w1Bd_nexnvuRqwRCsscEQtBSIHs1tAmKsW2CIbSB7dUhHPGo9p7PNLFiANJyx0dlBs4q2HhnNo6S8_j7xm2E1QkCKcnpAvzXXLytyChfwDf2z4W8nlj0xi1acb2ZkG7yJAvhztkWsmLO8Hn8BfUFDD7vIcCoU2wZOmPgJJi47zZKF42M9PY=w1168-h879-no)
 
 ##Installation
-1. Place files at root of web server (Apache, Nginx, etc).
-2. Create cron job to run isp_checkup.py as often as you want.
-3. Correct filepaths in isp_checkup.py
-4. Navigate to local server and observe data. 
+1. Run setup.py
+2. Follow instructions from running that script
 
 ##Credit Where Credit is Due
 ###<a href="https://github.com/nnnick/Chart.js">Chart.js</a>
