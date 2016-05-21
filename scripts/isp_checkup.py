@@ -6,10 +6,12 @@
 
 import os, json, collections, time
 
+path_to_repo = '/path/to/repo'
+
 def test():
 
     #run speedtest-cli
-    a = os.popen("python /path/to/repo/isp-checkup/speedtest_cli.py --simple").read()
+    a = os.popen('python ' + path_to_repo + '/scripts/speedtest_cli.py --simple').read()
 
     #split the 3 line result (ping,down,up)
     lines = a.split('\n')
@@ -29,9 +31,9 @@ def test():
             u = lines[2][8:12]
 
     #set file location paths
-    json_location = '/path/to/repo/isp-checkup/data/data.json'
-    javascript_data = '/path/to/repo/isp-checkup/js/data.js'
-    
+    json_location = path_to_repo + '/data/data.json'
+    javascript_data = path_to_repo + '/js/data.js'
+
     #read in old data
     with open(json_location,'r') as f:
         dic = json.load(f)
@@ -44,7 +46,7 @@ def test():
     #Magic number refers to the amount of datapoints you want to show in your graph
     #I like to generate a sample every 15 minutes. With a magic number of 48 that
     #displays 12 hours of data.
-    magic_number = 48
+    magic_number = 144
 
     #sort and delete oldest value. Keep only a magic number's worth of data
     od = {}
